@@ -360,7 +360,7 @@ class Dio {
       String url = options.path;
       if (!url.startsWith(new RegExp(r"https?:"))) {
         url = options.baseUrl + url;
-        List<String> s = url.split(":/");
+        List<String> s = url.split(RegExp(":\d*/"));
         url = s[0] + ':/' + s[1].replaceAll("//", "/");
       }
       options.method = options.method.toUpperCase();
